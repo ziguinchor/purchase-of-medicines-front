@@ -1,0 +1,54 @@
+<div class="card mt-5">
+  <div class="row">
+    <div class="col-md-8 cart">
+      <div class="title">
+        <div class="row">
+          <div class="col">
+            <h4><b>عربة التسوق</b></h4>
+          </div>
+        </div>
+      </div>
+      <div class="row border-top border-bottom" *ngFor="let product of products;let index = index">
+        <div class="row main align-items-center">
+          <div class="col-2"><img class="img-fluid" src="/assets/images/1.jpg"></div>
+          <div class="col">
+            <div class="row text-muted">{{product.title}}</div>
+            <!-- <div class="row">{{product.description | shorten: 10: '.....'}}</div> -->
+          </div>
+          <div class="col">
+            <button class="btn" (click)="increaseByOne(index)"><span class="badge bg-primary">+</span></button>
+            <label>{{product.quantity}}</label>
+            <button class="btn" (click)="decreaseByOne(index)"><span class="badge bg-primary">-</span></button>
+          </div>
+          <div class="col">{{product.numberOfSells}} جنيه</div>
+        </div>
+      </div>
+
+      <div class="back-to-shop"><button type="button" routerLink="/" class="btn btn-primary position-relative">عودة الي
+          التسوق</button>
+      </div>
+    </div>
+    <div class="col-md-4 summary">
+      <div>
+        <h5><b>الملخص</b></h5>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col" style="padding-left:0;">الاجمالي الفرعي</div>
+        <div class="col text-right">{{totalPrice}} جنيه</div>
+      </div>
+      <form>
+        <p>نوع الشحن</p>
+        <select #type (change)="measureTotalPrice(type.value)">
+          <option value="20" class="text-muted">شحن عادي-20 جنيه</option>
+          <option value="50" class="text-muted">شحن سريع-50 جنيه</option>
+        </select>
+        <p>كود الخصم</p> <input id="code" placeholder="هذا العرض غير متاح الأن" readonly>
+      </form>
+      <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
+        <div class="col">الاجمالي</div>
+        <div class="col text-right">{{totalOrder}} جنيه</div>
+      </div> <button class="checkout" (click)=storeTotalPriceOfOrder(totalOrder) routerLink="/sells/information">تابع عملية الشراء</button>
+    </div>
+  </div>
+</div>

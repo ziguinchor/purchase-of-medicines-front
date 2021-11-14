@@ -1,0 +1,93 @@
+<div class="container">
+    <form class=" p-4" [formGroup]="form">
+        <h2>تفاصيل الفاتورة</h2>
+        <div class="mb-3">
+          الأسم الأول<input type="text" class="form-control" formControlName='firstName'>
+          <div *ngIf="form.controls.firstName.invalid && isLogged || (form.controls.firstName.dirty || form.controls.firstName.touched)">
+            <small class="text-danger fw-bold mb-3 " *ngIf="form.controls.firstName.hasError( 'required') ">برجاء ملئ الحقل </small>
+            <small class="text-danger fw-bold mb-3 " *ngIf="form.controls.firstName.hasError( 'minlength') ">يجب ان تكتب اكتر من 4 احرف علي الاقل</small>
+            <small class="text-danger fw-bold mb-3 " *ngIf="form.controls.firstName.hasError( 'maxlength') ">يجب ان لا تذيد الأحرف عن 7 حرف</small>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          الأسم الأخير <input type="text" class="form-control" formControlName='lastName'>
+          <div *ngIf="form.controls.lastName.invalid && isLogged || (form.controls.lastName.dirty || form.controls.lastName.touched)">
+            <small class="text-danger fw-bold mb-3 " *ngIf="form.controls.lastName.hasError( 'required') ">برجاء ملئ الحقل </small>
+            <small class="text-danger fw-bold mb-3 " *ngIf="form.controls.lastName.hasError( 'minlength') ">يجب ان تكتب اكتر من 4 احرف علي الاقل</small>
+            <small class="text-danger fw-bold mb-3 " *ngIf="form.controls.lastName.hasError( 'maxlength') ">يجب ان لا تذيد الأحرف عن 7 حرف</small>
+          </div>
+        </div>
+
+
+        <div class="mb-3">
+          (اختياري)أسم الشركه <input type="text" class="form-control">
+        </div>
+
+
+        <div class="mb-3">
+          الدوله / المنطقه
+          <input list="browsers" name="browser" id="browser" class="form-control">
+          <datalist id="browsers">
+            <option value="" disabled selected>Select Country</option>
+            <option *ngFor="let country of Countries" [value]="country.name">{{country.name}}</option>
+          </datalist>
+        </div>
+
+        <div class="mb-3">
+          عنوان الشارع  <input type="text" class="form-control" formControlName='street'>
+        <div *ngIf="form.controls.street.invalid && isLogged || (form.controls.street.dirty || form.controls.street.touched)">
+          <small class="text-danger fw-bold mb-3 " *ngIf="form.controls.street.hasError( 'required') ">برجاء ملاء الحقل </small>
+            <small class="text-danger fw-bold mb-3 " *ngIf="form.controls.street.hasError( 'minlength') ">يجب ان تكتب اكتر من 20 حرف علي الاقل</small>
+            <small class="text-danger fw-bold mb-3 " *ngIf="form.controls.street.hasError( 'maxlength') ">يجب ان لا تذيد الأحرف عن 50 حرف</small>
+          </div>
+        </div>
+
+
+        <div class="mb-3">
+          المدينه <input type="text" class="form-control"formControlName='city'>
+        <div *ngIf="form.controls.city.invalid && isLogged || (form.controls.city.dirty || form.controls.city.touched)">
+            <small class="text-danger fw-bold mb-3 " *ngIf="form.controls.city.hasError( 'required') ">برجاء ملاء الحقل </small>
+            <small class="text-danger fw-bold mb-3 " *ngIf="form.controls.city.hasError( 'minlength') ">يجب ان تكتب اكتر من 5 حرف علي الاقل</small>
+            <small class="text-danger fw-bold mb-3 " *ngIf="form.controls.city.hasError( 'maxlength') ">يجب ان لا تذيد الأحرف عن 10 حرف</small>
+        </div>
+      </div>
+
+
+        <div class="mb-3">
+          المنطقه <input type="text" class="form-control" formControlName='area'>
+          <div *ngIf="form.controls.area.invalid && isLogged || (form.controls.area.dirty || form.controls.area.touched)">
+            <small class="text-danger fw-bold mb-3 " *ngIf="form.controls.area.hasError( 'required') ">برجاء ملىء الحقل</small>
+            <small class="text-danger fw-bold mb-3 " *ngIf="form.controls.area.hasError( 'minlength') ">يجب ان تكتب اكتر من 5 احرف علي الاقل</small>
+            <small class="text-danger fw-bold mb-3 " *ngIf="form.controls.area.hasError( 'maxlength') ">يجب ان لا تذيد الأحرف عن 20 حرف</small>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          الرمذ البريدي / ZIP <input type="text" class="form-control" formControlName='zipCode'>
+        <div *ngIf="form.controls.zipCode.invalid && isLogged || (form.controls.zipCode.dirty || form.controls.zipCode.touched)">
+          <small class="text-danger fw-bold mb-3 " *ngIf="form.controls.zipCode.hasError( 'pattern') ">الرقم غير صالح</small>
+        </div>
+      </div>
+        <div class="mb-3">
+          رقم الهاتف <input type="text" class="form-control"formControlName='mobilePhone' placeholder="+2">
+          <div *ngIf="form.controls.mobilePhone.invalid && isLogged || (form.controls.mobilePhone.dirty || form.controls.mobilePhone.touched)">
+            <small class="text-danger fw-bold mb-3 " *ngIf="form.controls.mobilePhone.hasError( 'pattern') ">الرقم غير صالح</small>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          البريد الالكتروني <input type="text" class="form-control" formControlName='email'>
+          <div *ngIf="form.controls.email.invalid && isLogged || (form.controls.email.dirty || form.controls.email.touched)">
+            <small class="text-danger fw-bold mb-3 " *ngIf="form.controls.email.hasError( 'required') ">البريد الألكتروني غير صحيح</small>
+            <small class="text-danger fw-bold mb-3 " *ngIf="form.controls.email.hasError( 'minlength') ">يجب ان تكتب اكتر من 8 احرف علي الاقل</small>
+            <small class="text-danger fw-bold mb-3 " *ngIf="form.controls.email.hasError( 'maxlength') ">يجب ان لا تذيد الأحرف عن 20 حرف</small>
+          </div>
+        </div>
+
+        <button class="btn btn-success" (click)='goPay()'><a routerLink='/sells/pay'>تاكيد الطلب</a></button>
+    </form>
+</div>
+
+
+

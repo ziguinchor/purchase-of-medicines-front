@@ -1,0 +1,43 @@
+<app-header></app-header>
+<div class="parent">
+  <div class="container pt-5" *ngIf="!beforeClick">
+
+    <div class="app_conatiner m-auto">
+      <div class="top-box">
+        <p><span class="left-icon">&#x2190;</span> CHECKOUT<span class="right-icon">&#xb7;&#xb7;&#xb7;</span></p>
+      </div>
+      <div class="middle-box">
+        <h1><span>ج.م</span> {{totalPrice}} </h1>
+        <p>Pay To Bhavik Company Ltd</p>
+      </div>
+
+      <div class="bottom-box text-center">
+        <button type="button" (click)="pay(5)" class="payment-option-btn">Pay With Stripe</button>
+        <button type="submit" (click)="paypal()" class="payment-option-btn">Pay With Paypal</button>
+        <div class="card-details">
+          <p>Pay using credit or debit card</p>
+          <div class="card-num-field-group">
+            <label>Card Number</label>
+            <input type="text" class="card-num-field" placeholder="xxxx-xxxx-xxxx-xxxx">
+          </div>
+          <div class="name-field-group">
+            <label>Card Holder Name</label><br>
+            <input type="text" class="name-field" placeholder="Full Name">
+          </div>
+          <div>
+            <button type="button" class="pay-btn">Pay Now</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <div class="container pt-5" *ngIf="beforeClick">
+    <div class="text-center pt-5">
+      <img src="/assets/images/loader7.gif" style="width:100px; height:100px">
+      <h1 class="text-success">Processin. Please Wait.....</h1>
+    </div>
+  </div>
+</div>
