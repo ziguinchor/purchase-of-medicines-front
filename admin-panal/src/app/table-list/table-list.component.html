@@ -1,0 +1,211 @@
+<div class="panel-header panel-header-sm">
+</div>
+<div class="main-content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title"> Simple Table</h4>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table" *ngIf="isPageLoaded">
+              <thead class=" text-primary">
+                <th>
+                  Name
+                </th>
+                <th>
+                  Country
+                </th>
+                <th>
+                  Email
+                </th>
+                <th class="">
+                  Phone
+                </th>
+                <th class="text-right">
+                  Details
+                </th>
+              </thead>
+              <tbody>
+                <tr *ngFor="let user of users; let index = index">
+                  <td>
+                    {{user.name}}
+                  </td>
+                  <td>
+                    Egypt
+                  </td>
+                  <td>
+                    {{user.email}}
+                  </td>
+                  <td class="">
+                    {{user.phone}}
+                  </td>
+                  <td class="">
+                    <button type="button" class=" btn btn-primary" data-bs-toggle="modal" [attr.data-bs-target]="'#prop'+user._id">Show</button>
+                    <div class="modal fade" id="prop{{user._id}}" tabindex="-1" aria-labelledby="exampleModalLabel"
+                      aria-hidden="true">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">User Information <i class="fa fa-user"></i>
+                            </h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
+                            <p class="h4">
+                              {{user.name}}
+                            </p>
+                            <p class="h4">
+                              {{user.email}}
+                            </p>
+                            <p class="h4">
+                              {{user.phone}}
+                            </p>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal"
+                              (click)="deleteUser(user._id, index)"
+                              class="btn btn-primary">Remove {{user.name}}</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-12">
+      <div class="card card-plain">
+        <div class="card-header">
+          <h4 class="card-title"> Table on Plain Background</h4>
+          <p class="category"> Here is a subtitle for this table</p>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead class=" text-primary">
+                <th>
+                  Name
+                </th>
+                <th>
+                  Country
+                </th>
+                <th>
+                  City
+                </th>
+                <th class="text-right">
+                  Salary
+                </th>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    Dakota Rice
+                  </td>
+                  <td>
+                    Niger
+                  </td>
+                  <td>
+                    Oud-Turnhout
+                  </td>
+                  <td class="text-right">
+                    $36,738
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Minerva Hooper
+                  </td>
+                  <td>
+                    Curaçao
+                  </td>
+                  <td>
+                    Sinaai-Waas
+                  </td>
+                  <td class="text-right">
+                    $23,789
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Sage Rodriguez
+                  </td>
+                  <td>
+                    Netherlands
+                  </td>
+                  <td>
+                    Baileux
+                  </td>
+                  <td class="text-right">
+                    $56,142
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Philip Chaney
+                  </td>
+                  <td>
+                    Korea, South
+                  </td>
+                  <td>
+                    Overland Park
+                  </td>
+                  <td class="text-right">
+                    $38,735
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Doris Greene
+                  </td>
+                  <td>
+                    Malawi
+                  </td>
+                  <td>
+                    Feldkirchen in Kärnten
+                  </td>
+                  <td class="text-right">
+                    $63,542
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Mason Porter
+                  </td>
+                  <td>
+                    Chile
+                  </td>
+                  <td>
+                    Gloucester
+                  </td>
+                  <td class="text-right">
+                    $78,615
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Jon Porter
+                  </td>
+                  <td>
+                    Portugal
+                  </td>
+                  <td>
+                    Gloucester
+                  </td>
+                  <td class="text-right">
+                    $98,615
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
