@@ -1,0 +1,182 @@
+<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" routerLink=""
+            >الرئيسية</a
+          >
+        </li>
+
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="navbarDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            الكورسات الاكاديمية
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li>
+              <a
+                class="dropdown-item"
+                (click)="getCatBooks('6172179ce9ef8ab21a899d85')"
+                routerLink="/categories/acadimic/home-economics"
+                >الاقتصاد المنزلي</a
+              >
+            </li>
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="navbarDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            الدبلومات
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li>
+              <a
+                class="dropdown-item"
+                (click)="getCatBooks('617217eae9ef8ab21a899d8c')"
+                routerLink="/categories/diplomas/management-economy"
+                >الإقتصاد و الإدارة</a
+              >
+            </li>
+            <li>
+              <a
+                class="dropdown-item"
+                (click)="getCatBooks('6172181be9ef8ab21a899d92')"
+                routerLink="/categories/diplomas/sociology"
+                >علم مجتمع</a
+              >
+            </li>
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="navbarDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            الدراسات العليا
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li>
+              <a
+                class="dropdown-item"
+                (click)="getCatBooks('617217cfe9ef8ab21a899d8a')"
+                routerLink="/categories/graduate/arts-humanities"
+                >الآداب و العلوم الانسانية</a
+              >
+            </li>
+            <li>
+              <a
+                class="dropdown-item"
+                (click)="getCatBooks('61721810e9ef8ab21a899d90')"
+                routerLink="/categories/graduate/economics-management"
+                >إدراة و اقتصاد</a
+              >
+            </li>
+
+            <li>
+              <a
+                class="dropdown-item"
+                (click)="getCatBooks('617217fce9ef8ab21a899d8e')"
+                routerLink="/categories/graduate/special-education"
+                >التعليم الخاص</a
+              >
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">من نحن</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#">تواصل معنا</a>
+        </li>
+      </ul>
+
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item ml-5">
+          <a class="nav-link" routerLink="/sells/cart">
+            <span class="badge badge-warning" id="lblCartCount">
+              {{ cartItem }}
+            </span>
+            <i class="fa" style="font-size: 24px">&#xf07a;</i>
+          </a>
+        </li>
+
+        <li class="nav-item dropdown" *ngIf="logStatus()">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="navbarDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            {{ getUserName() }}
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li>
+              <a
+                class="dropdown-item"
+                routerLink="/auth/login"
+                (click)="logout()"
+                >تسجيل خروج</a
+              >
+            </li>
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown" *ngIf="!logStatus()">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="navbarDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            مستخدم جديد
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li>
+              <a class="dropdown-item" routerLink="/auth/login">تسجيل دخول</a>
+            </li>
+            <li>
+              <a class="dropdown-item" routerLink="/auth/register"
+                >انشاء حساب جديد</a
+              >
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
