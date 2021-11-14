@@ -43,4 +43,15 @@ export class IconsComponent implements OnInit {
     }
   }
 
+  addNew(title:string, description:string, quantity:any, price:any, companyName:any, exData:any, image:any){
+    console.log(title,description, quantity, price, companyName, exData)
+    console.log('ok')
+    if(this.form.valid){
+      this.http.post(`http://localhost:8080/api/medicine`, {title, description, quantity, price, companyName, exData,image}).subscribe(response=>{
+        console.log(response)
+        location.reload()
+      })
+    }
+  }
+
 }

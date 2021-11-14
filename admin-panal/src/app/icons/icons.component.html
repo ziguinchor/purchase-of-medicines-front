@@ -27,7 +27,7 @@
                   <label for="title">Title</label>
                   <input class="form-control mb-2" type="text" #inputTitle value="{{book.title}}">
                   <label for="title">Company Name</label>
-                  <input class="form-control mb-2" type="text" #inputCompanyName value="{{book.companyName}}">
+                  <input class="form-control mb-2" type="text" name="companyValue" #inputCompanyName value="{{book.companyName}}">
                   <label for="amount">Quantity</label>
                   <input class="form-control mb-2" #inputAmount type="number" value="{{book.quantity}}">
                   <label for="price">Price</label>
@@ -73,6 +73,42 @@
             <jw-pagination [items]="medicines" (changePage)="onChangePage($event)"></jw-pagination>
         </div>
         </div>
+
+        <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addModal">Add New Product</button>
+        <!-- Add Product -->
+          <!-- Modal For Add -->
+          <form [formGroup]="form" *ngIf="isPageLoaded">
+
+            <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Add New Medicine <i class="fa fa-book"></i></h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <label for="title">Title</label>
+                  <input class="form-control mb-2" type="text" #inputTitle value="">
+                  <label for="title">Company Name</label>
+                  <input class="form-control mb-2" type="text" #inputCompanyName value="">
+                  <label for="amount">Quantity</label>
+                  <input class="form-control mb-2" #inputAmount type="number" value="">
+                  <label for="price">Price</label>
+                  <input class="form-control" #inputPrice type="number" value="">
+                  <label for="price">Expire Date</label>
+                  <input class="form-control" #inputExData type="date" value="">
+                  <textarea class="form-control mb-2" #inputDescription value="" placeholder="book description"></textarea>
+                  <input type="file" #inputImage>
+                </div>
+                <div class="modal-footer">
+                  <button type="button"  class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="button" (click)="addNew(inputTitle.value, inputDescription.value, inputAmount.value, inputPrice.value, inputCompanyName.value, inputExData.value, inputImage.value)" class="btn btn-primary">Save changes</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </form>
 
 
         <!-- <div class="card-body all-icons">
