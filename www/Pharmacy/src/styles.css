@@ -1,0 +1,48 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;600;700&display=swap');
+
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+/* Constant Colors */
+
+:root {
+  --mc: #654530;
+  --sc: #63FF1A;
+  --tc: #000;
+  --fc: #D29F96;
+  --bg: #fff6f4;
+  --h5: #FFFB1A;
+  --text: #868096;
+}
+
+.vertical-row {
+  height: 1px;
+  background-color: black;
+  /* you might need some positioning for this to work, see other questions about 100% height */
+  width: 100%;
+  border: 1px solid black;
+}
+
+.border-line {
+  border: 1px solid #000;
+}
+
+.comment {
+  border-radius: 15px;
+  width: 100%;
+  background-color: #e6e6e6;
+}
+
+body{
+  padding-top:0.8%
+}
+
+/* *{
+  direction:rtl;
+} */
+a{
+  cursor: pointer;
+}
+/*
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; } */

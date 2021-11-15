@@ -39,9 +39,10 @@ export class HomeComponent implements OnInit {
 
     const token = localStorage.token
 
-    this.apiService.get('http://localhost:8080/api/books',
+    this.apiService.get('http://localhost:8080/api/medicine',
       { headers: { 'Authorization': `Bearer ${token}` } })
       .subscribe(res => {
+        console.log(res)
         this.books = res;
         this.items = Array(3).fill(0).map((x, i) => ({ id: (i + 1), name: `Item ${i + 1}` }));
         this.responseGet = true;
@@ -86,8 +87,5 @@ export class HomeComponent implements OnInit {
 
 addToCart(book:any){
   this._cart.toCart(book);
-}
-goToDetails(id:any){
-  this.router.navigateByUrl(`/categories/book-details/${id}`)
 }
 }

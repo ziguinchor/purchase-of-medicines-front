@@ -8,17 +8,12 @@
       <div class="carousel-inner">
         <div class="carousel-item active">
           <img
-            src="https://media.istockphoto.com/photos/good-book-can-do-the-world-of-good-picture-id1257761640?k=20&m=1257761640&s=612x612&w=0&h=g4uD83X0qNVO7YNagIA1IyBLT1w0pBCwfFifie4_L-E="
+            src="/assets/images/1.jpg"
             class="d-block w-100" alt="...">
         </div>
         <div class="carousel-item">
           <img
-            src="https://media.istockphoto.com/photos/man-reading-a-book-on-the-couch-picture-id513491328?k=20&m=513491328&s=612x612&w=0&h=zDtNhm55EqgEWUuI9rblW3mCJVPgaqSwbd0lY6xtEpY="
-            class="d-block w-100" alt="...">
-        </div>
-        <div class="carousel-item">
-          <img
-            src="https://media.istockphoto.com/photos/portrait-of-pretty-nice-handsome-entrepreneur-hold-hand-touch-chin-picture-id1157094381?k=20&m=1157094381&s=612x612&w=0&h=epHHK6tmqY15NHK-YNbYsN8Hf7Za88nVmkRJB78ljDE="
+            src="/assets/images/2.jpg"
             class="d-block w-100" alt="...">
         </div>
       </div>
@@ -40,51 +35,26 @@
 
 
 <div class="container mt-5">
-  <input type="search" [(ngModel)]="title" (input)="Search()" class="form-control rounded"
-    placeholder="البحث عن منتجات...." aria-label="Search" aria-describedby="search-addon" />
   <div class="container">
     <div class="row" *ngIf="responseGet">
-      <div class="col-12 col-lg-4">
-        <app-sidebar></app-sidebar>
-      </div>
 
       <div class="col">
         <div class="row g-3">
           <div class="col-12 col-lg-4" *ngFor="let book of pageOfItems">
             <div class="card text-center">
               <a>
-                <img src="http://localhost:8080/api/books/{{ book._id }}/avatar" (click)="goToDetails(book._id)" />
+                <img src="http://localhost:8080/api/medicine/{{ book._id }}/image" />
               </a>
               <div class="card-body">
-                <h3>المؤلف : {{ book.author }}</h3>
+                <h3>Name : {{ book.title }}</h3>
                 <h5 class="card-title">
                   <!-- maxLength: 22:"....." -->
-                  {{ book.title }}
+                  {{ book.description }}
                 </h5>
                 <span class="badge fs-5 rounded-pill bg-primary" id="price">
-                  {{ book.price }} جنيه
+                  {{ book.price }} US
                 </span>
-
-                <!-- <div class="price">
-                  <h5>{{ book.price }}</h5>
-                </div> -->
-                <!-- (input)="stars(book)" -->
-
-                <div class="rateing">
-                  <!-- <div class="hidden">
-                    {{ getCarruntRate(book.rate) }}
-                  </div> -->
-                  <p hidden>
-                    {{ getCarruntRate(book.rate) }}
-                  </p>
-
-                  <button mat-icon-button class="btn text-warning" *ngFor="let r of ratingArr; index as i">
-                    <mat-icon>
-                      {{ returnStar(i) }}
-                    </mat-icon>
-                  </button>
-                </div>
-
+                <br>
                 <button type="button" id="addCart" class="btn btn-danger btn" (click)="addToCart(book)">
                   الاضافة الي العربة
                 </button>
@@ -99,4 +69,3 @@
     </div>
   </div>
 
-  <app-footer></app-footer>
