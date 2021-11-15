@@ -54,4 +54,11 @@ export class IconsComponent implements OnInit {
     }
   }
 
+  deleteItem(id:any){
+    this.http.delete(`http://localhost:8080/api/medicine/delete/${id}`).subscribe(response=>{
+      console.log(response)
+      location.reload()
+    })
+  }
+
 }
