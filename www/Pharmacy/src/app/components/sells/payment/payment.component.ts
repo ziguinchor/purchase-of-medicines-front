@@ -22,12 +22,6 @@ export class PaymentComponent implements OnInit {
   }
 
 
-  // ************* paypal ***********//
-  paypal(){
-    location.assign('http://localhost:8080')
-  }
-
-
   loadStripe() {
 
     if (!window.document.getElementById('stripe-script')) {
