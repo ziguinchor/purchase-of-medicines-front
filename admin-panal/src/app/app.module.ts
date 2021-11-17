@@ -13,6 +13,7 @@ import { AppComponent } from './app.component';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { JwPaginationModule } from 'jw-angular-pagination';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   imports: [
@@ -28,7 +29,8 @@ import { JwPaginationModule } from 'jw-angular-pagination';
   ],
   declarations: [
     AppComponent,
-    AdminLayoutComponent
+    AdminLayoutComponent,
+    LoginComponent
   ],
   providers: [
     // {provide: 'MAT_FORM_FIELD_DEFAULT_OPTIONS', useValue: {appearance: 'fill'}}
