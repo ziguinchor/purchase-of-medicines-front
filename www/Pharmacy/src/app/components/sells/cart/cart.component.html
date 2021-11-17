@@ -4,13 +4,13 @@
       <div class="title">
         <div class="row">
           <div class="col">
-            <h4><b>عربة التسوق</b></h4>
+            <h4><b>Cart</b></h4>
           </div>
         </div>
       </div>
       <div class="row border-top border-bottom" *ngFor="let product of products;let index = index">
         <div class="row main align-items-center">
-          <div class="col-2"><img class="img-fluid" src="/assets/images/1.jpg"></div>
+          <div class="col-2"><img class="img-fluid" src="http://localhost:8080/{{index}}.jpg"></div>
           <div class="col">
             <div class="row text-muted">{{product.title}}</div>
             <!-- <div class="row">{{product.description | shorten: 10: '.....'}}</div> -->
@@ -20,35 +20,35 @@
             <label>{{product.quantity}}</label>
             <button class="btn" (click)="decreaseByOne(index)"><span class="badge bg-primary">-</span></button>
           </div>
-          <div class="col">{{product.numberOfSells}} جنيه</div>
+          <div class="col">{{product.numberOfSells}} US</div>
         </div>
       </div>
 
-      <div class="back-to-shop"><button type="button" routerLink="/" class="btn btn-primary position-relative">عودة الي
-          التسوق</button>
+      <div class="back-to-shop"><button type="button" routerLink="/" class="btn btn-primary position-relative">Back To Home
+          </button>
       </div>
     </div>
     <div class="col-md-4 summary">
       <div>
-        <h5><b>الملخص</b></h5>
+        <h5><b></b></h5>
       </div>
       <hr>
       <div class="row">
-        <div class="col" style="padding-left:0;">الاجمالي الفرعي</div>
-        <div class="col text-right">{{totalPrice}} جنيه</div>
+        <div class="col" style="padding-left:0;">Total Behind</div>
+        <div class="col text-right">{{totalPrice}} US</div>
       </div>
       <form>
-        <p>نوع الشحن</p>
+        <p>Charging type</p>
         <select #type (change)="measureTotalPrice(type.value)">
-          <option value="20" class="text-muted">شحن عادي-20 جنيه</option>
-          <option value="50" class="text-muted">شحن سريع-50 جنيه</option>
+          <option value="20" class="text-muted">Regular Charging- 20 US</option>
+          <option value="50" class="text-muted">Quick Charging-50 US</option>
         </select>
-        <p>كود الخصم</p> <input id="code" placeholder="هذا العرض غير متاح الأن" readonly>
+        <p>Descount Code</p> <input id="code" placeholder="Unavaliable" readonly>
       </form>
       <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
-        <div class="col">الاجمالي</div>
-        <div class="col text-right">{{totalOrder}} جنيه</div>
-      </div> <button class="checkout" (click)=storeTotalPriceOfOrder(totalOrder) routerLink="/sells/pay">تابع عملية الشراء</button>
+        <div class="col">Total</div>
+        <div class="col text-right">{{totalOrder}} US</div>
+      </div> <button class="checkout" (click)=storeTotalPriceOfOrder(totalOrder) routerLink="/sells/pay">Continue</button>
     </div>
   </div>
 </div>

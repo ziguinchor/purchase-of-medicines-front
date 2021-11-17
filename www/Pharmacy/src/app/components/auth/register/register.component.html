@@ -5,7 +5,7 @@
 <div class="container my-5">
   <!-- alert for update data successfully -->
   <div *ngIf="isLoginSuccess" class="alert alert-info alert-dismissible fade show" role="alert">
-    <strong>عمل جيد</strong> تم تسجيل دخولك بنجاح
+    <strong>Good Work</strong> Logged successfully
     <button type="button" (click)="hide()" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
   </div>
 
@@ -14,85 +14,78 @@
     <div>
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
         <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
-        </svg> برجاء التأكد من المعلومات الخاصة بك والمحاولة مرة أخرى
+        </svg> Please confirm information and try again
         <button type="button" (click)="hide()" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         <button type="button" (click)="hide()" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
   </div>
   <div class="title text-center mb-1">
-    <span class="h1 create text-light">إنشاء حساب</span>
+    <span class="h1 create text-light">Create Account</span>
   </div>
 
   <!-- Start SignUp Form -->
   <div class="container row">
-    <div class="col col-lg-6 offset-3 text-end">
+    <div class="col col-lg-6 offset-3 ">
       <form class="p-4" action="#" [formGroup]="form">
         <div class="fullName-container mb-1" >
-          <label class="fw-bold text-light" for="full_name">الإسم كاملا</label>
+          <label class="fw-bold text-light" for="full_name">Full Name</label>
           <input class="form-control" type="text" name="name" formControlName="name">
           <div *ngIf="form.controls.name.invalid && isLogged || (form.controls.name.dirty || form.controls.name.touched)">
-            <small class="text-danger fw-bold mb-1 " *ngIf="form.controls.name.hasError( 'required') ">هذا الحقل مطلوب</small>
+            <small class="text-danger fw-bold mb-1 " *ngIf="form.controls.name.hasError( 'required') ">this field is required </small>
             <small class="text-danger fw-bold mb-1 " *ngIf="form.controls.name.hasError( 'maxlength') "> الحد الأقصى لهذا الحق هو 30 حرفا</small>
           </div>
         </div>
         <div class="email-container mb-1">
-          <label class="fw-bold text-light" for="email">البريد الإلكترونى</label>
+          <label class="fw-bold text-light" for="email">Email</label>
           <input class="form-control" type="email" name="email" formControlName="email">
           <div *ngIf="form.controls.email.invalid && isLogged || (form.controls.email.dirty || form.controls.email.touched)">
-            <small class="text-danger fw-bold mb-1 " *ngIf="form.controls.email.hasError( 'required') ">هذا الحقل مطلوب</small>
-            <small class="text-danger fw-bold mb-1 " *ngIf="form.controls.email.hasError( 'email') ">البريد الالكترونى غير صالح</small>
-            <small class="text-danger fw-bold mb-1 " *ngIf="form.controls.email.hasError( 'maxlength') "> الحد الأقصى لهذا الحق هو 30 حرفا</small>
+            <small class="text-danger fw-bold mb-1 " *ngIf="form.controls.email.hasError( 'required') ">this field is required </small>
+            <small class="text-danger fw-bold mb-1 " *ngIf="form.controls.email.hasError( 'email') ">invalid email</small>
           </div>
         </div>
         <div class="email-container mb-1">
-          <label class="fw-bold text-light" for="phone">رقم الهاتف</label>
+          <label class="fw-bold text-light" for="phone">Phone Number</label>
           <input class="form-control" type="phone" name="phone" formControlName="phone">
           <div *ngIf="form.controls.phone.invalid && isLogged || (form.controls.phone.dirty || form.controls.phone.touched)">
-            <small class="text-danger fw-bold mb-1 " *ngIf="form.controls.phone.hasError( 'required') ">هذا الحقل مطلوب</small>
+            <small class="text-danger fw-bold mb-1 " *ngIf="form.controls.phone.hasError( 'required') ">this field is required </small>
             <small class="text-danger fw-bold mb-1 " *ngIf="form.controls.phone.hasError( 'maxlength') "> this is big phone</small>
           </div>
         </div>
         <div class="email-container mb-1">
-          <label class="fw-bold text-light" for="address">العنوان</label>
+          <label class="fw-bold text-light" for="address">Address</label>
           <input class="form-control" type="address" name="address" formControlName="address">
           <div *ngIf="form.controls.address.invalid && isLogged || (form.controls.address.dirty || form.controls.address.touched)">
-            <small class="text-danger fw-bold mb-1 " *ngIf="form.controls.address.hasError( 'required') ">هذا الحقل مطلوب</small>
-            <small class="text-danger fw-bold mb-1 " *ngIf="form.controls.address.hasError( 'maxlength') "> الحد الاقصى هو 100 حرف </small>
+            <small class="text-danger fw-bold mb-1 " *ngIf="form.controls.address.hasError( 'required') ">this field is required </small>
           </div>
         </div>
         <div class="password-container mb-1" >
-          <label class="fw-bold text-light" for="password">الرقم السرى</label>
+          <label class="fw-bold text-light" for="password">Password</label>
           <input class="form-control" #passwordValue type="password" name="password" formControlName="password">
           <div *ngIf="form.controls.password.invalid && isLogged || (form.controls.password.dirty || form.controls.password.touched)">
-            <small class="text-danger fw-bold mb-1 " *ngIf="form.controls.password.hasError( 'required') ">هذا الحقل مطلوب</small>
-            <small class="text-danger fw-bold mb-1 " *ngIf="form.controls.password.hasError( 'minlength') ">ينبغى كتابة حروف وعلامات بحد أدنى حرفا واحدا كما ان الرمز قصير جدا</small>
-            <small class="text-danger fw-bold mb-1 " *ngIf="form.controls.password.hasError( 'maxlength') ">ينبغى كتابة حروف وعلامات بحد أدنى حرفا واحدا</small>
+            <small class="text-danger fw-bold mb-1 " *ngIf="form.controls.password.hasError( 'required') ">this field is required </small>
           </div>
         </div>
         <div class="password-container mb-5">
-          <label class="fw-bold text-light" for="password_confirmation">تأكيد الرقم السرى</label>
+          <label class="fw-bold text-light" for="password_confirmation">Password Confirmation</label>
           <input class="form-control" #passwordConfirmValue type="password" name="password_confirmation" formControlName="password_confirmation">
           <div *ngIf="form.controls.password_confirmation.invalid && isLogged || (form.controls.password_confirmation.dirty || form.controls.password_confirmation.touched)">
-            <small class="text-danger fw-bold mb-1 " *ngIf="form.controls.password_confirmation.hasError( 'required') ">هذا الحقل مطلوب</small>
-            <small class="text-danger fw-bold mb-1 " *ngIf="passwordValue.value != passwordConfirmValue.value"> هذا الرمز غير مطابق للرمز السابق</small>
+            <small class="text-danger fw-bold mb-1 " *ngIf="form.controls.password_confirmation.hasError( 'required') ">this field is required </small>
+            <small class="text-danger fw-bold mb-1 " *ngIf="passwordValue.value != passwordConfirmValue.value">must be silmilarity to password</small>
           </div>
         </div>
 
-        <div class="forget text-end m-2">
-          <a href="#">هل نسيت كلمة السر</a>
-        </div>
-        <input type="button" value="إنشاء حساب" [ngClass]="{'bg-success text-light': (passwordValue.value === passwordConfirmValue.value) && form.valid}" class="form-control" (click)="register()">
+        <input type="button" value="Create New" [ngClass]="{'bg-success text-light': (passwordValue.value === passwordConfirmValue.value) && form.valid}" class="form-control" (click)="register()">
         <div class="social-links text-center my-3">
-          <p class="h6 mb-1">يمكنك ايضا</p>
-          <button class="btn form-control mb-2" (click)="signInWithGoogle()"> تسجيل الدخول بإستخدام جوجل<i class="fa fa-google fw-bold fs-5 text-danger"></i></button>
-          <button class="btn form-control mb-2" (click)="signInWithFB()">تسجيل الدخول بإستخدام فيس بوك<i class="fa fa-facebook fw-bold fs-5 text-primary"></i></button>
+          <p class="h6 mb-1">OR</p>
+          <button class="btn form-control mb-2" (click)="signInWithGoogle()"> Login with Google<i class="fa fa-google fw-bold fs-5 text-danger"></i></button>
+          <button class="btn form-control mb-2" (click)="signInWithFB()">Login with facebook<i class="fa fa-facebook fw-bold fs-5 text-primary"></i></button>
         </div>
       </form>
     </div>
 
     <!-- New To Patreon -->
     <div class="new-patreon text-center mt-3">
-      <p class="h6">هل لديك حساب بالفعل؟  <a routerLink="/auth/login">تسجيل الخول</a></p>
+      <p class="h6">Already have an account?  <a routerLink="/auth/login">Login</a></p>
     </div>
   </div>
 
