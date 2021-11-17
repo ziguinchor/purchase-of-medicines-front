@@ -42,8 +42,8 @@ export class LoginComponent implements OnInit {
         console.log(res)
         this.logginData = res;
         if (this.logginData) {
-          // localStorage.token = this.logginData.token;
-          // this.router.navigateByUrl('/dashboard');
+          localStorage.token = this.logginData.token;
+          this.router.navigateByUrl('/');
           this.isLoginSuccess = true;
           this.isLoginError = false;
         } else {
