@@ -66,7 +66,7 @@ export class CartComponent implements OnInit {
           localStorage.localCart = JSON.stringify(this.products)
           console.log(this.products[i].quantity)
         }else if(this.products[i].quantity <= 1 ){
-          if(confirm('هل حقا تريد حذ المنتج من حقيبة المشتريات؟')){
+          if(confirm('Are You Sure?')){
             this.products = this.products.filter((item:any) => item._id != this.products[i]._id)
             this.getTotalPrice(this.products)
             localStorage.localCart = JSON.stringify(this.products)
